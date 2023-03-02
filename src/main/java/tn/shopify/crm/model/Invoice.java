@@ -13,12 +13,17 @@ public class Invoice {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column  
 	private int id; 
+	
 	@ManyToOne(optional=false)
 	@JoinColumn(name="idclient", referencedColumnName="id") 
+	private Client client ; 
+	
 	@OneToMany
 	@JoinColumn(name="idsale", referencedColumnName="id")
+	private Sale sale ; 
+	
 	@Column  
-	private int discoun;  
+	private int discount;  
 	@Column  
 	private double tax ;  
 	@Column  
@@ -29,11 +34,24 @@ public class Invoice {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getDiscoun() {
-		return discoun;
+
+	public Client getClient() {
+		return client;
 	}
-	public void setDiscoun(int discoun) {
-		this.discoun = discoun;
+	public void setClient(Client client) {
+		this.client = client;
+	}
+	public Sale getSale() {
+		return sale;
+	}
+	public void setSale(Sale sale) {
+		this.sale = sale;
+	}
+	public int getDiscount() {
+		return discount;
+	}
+	public void setDiscount(int discount) {
+		this.discount = discount;
 	}
 	public double getTax() {
 		return tax;
@@ -49,7 +67,9 @@ public class Invoice {
 	}
 	@Override
 	public String toString() {
-		return "Invoice [id=" + id + ", discoun=" + discoun + ", tax=" + tax + ", total=" + total + "]";
+		return "Invoice [id=" + id + ", client=" + client + ", sale=" + sale + ", discount=" + discount + ", tax=" + tax
+				+ ", total=" + total + "]";
 	}
+
 }
 	

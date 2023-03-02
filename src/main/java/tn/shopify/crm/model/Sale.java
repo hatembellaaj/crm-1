@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity  
@@ -20,7 +21,9 @@ public class Sale {
 	private float quantity; 
 	@ManyToOne(optional=false)
 	@JoinColumn(name="idinvoice", referencedColumnName="id")
-	@OneToMany(optinal=false)
+	private Invoice invoice ; 
+
+	@OneToOne(optional=false)
 	@JoinColumn(name="idproduct", referencedColumnName="id")
 	private Product product;
 //	private Invoice invoice;
@@ -36,18 +39,19 @@ public class Sale {
 	public void setQuantity(float quantity) {
 		this.quantity = quantity;
 	}
-	/**
+	
 	public Invoice getInvoice() {
 		return invoice;
 	}
 	public void setInvoice(Invoice invoice) {
 		this.invoice = invoice;
 	}
-	**/
 	@Override
 	public String toString() {
-		return "Sale [id=" + id + ", quantity=" + quantity + "]";
+		return "Sale [id=" + id + ", quantity=" + quantity + ", invoice=" + invoice + ", product=" + product + "]";
 	}
+	
+	
 
 
 }

@@ -22,19 +22,21 @@ public class Client {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column  
-	private int idClient;  
+	private int id;
 	@Column  
 	private String nameClient;  
 
 	@Column  
 	private String email;
 
-	public int getIdClient() {
-		return idClient;
+
+
+	public int getId() {
+		return id;
 	}
 
-	public void setIdClient(int idClient) {
-		this.idClient = idClient;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNameClient() {
@@ -55,8 +57,10 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return "Client [idClient=" + idClient + ", nameClient=" + nameClient + ", email=" + email + "]";
-	}  
+		return "Client [id=" + id + ", nameClient=" + nameClient + ", email=" + email + "]";
+	}
+
+	
 	
 	
 	

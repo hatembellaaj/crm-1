@@ -15,6 +15,14 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column 
 	private int id;  
+
+	@Column  
+	private String name; 
+	@Column  
+	private float price;
+	@ManyToOne(optional=false)
+	@JoinColumn(name="idcategory", referencedColumnName="id")
+	private Sale sale;
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", sale=" + sale + "]";
@@ -43,11 +51,4 @@ public class Product {
 	public void setSale(Sale sale) {
 		this.sale = sale;
 	}
-	@Column  
-	private String name; 
-	@Column  
-	private float price;
-	@ManyToOne(optional=false)
-	@JoinColumn(name="idcategory", referencedColumnName="id")
-	private Sale sale;
 	}

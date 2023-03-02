@@ -53,7 +53,7 @@ public class ClientController {
 		private int saveClient(@RequestBody Client r)   
 		{  
 			cS.saveOrUpdate(r);
-			return r.getIdClient();  
+			return r.getId();  
 		} 
 
 		//creating put mapping that updates the book detail

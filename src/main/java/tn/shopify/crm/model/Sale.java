@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity  
@@ -19,6 +20,9 @@ public class Sale {
 	private float quantity; 
 	@ManyToOne(optional=false)
 	@JoinColumn(name="idinvoice", referencedColumnName="id")
+	@OneToMany(optinal=false)
+	@JoinColumn(name="idproduct", referencedColumnName="id")
+	private Product product;
 //	private Invoice invoice;
 	public int getId() {
 		return id;

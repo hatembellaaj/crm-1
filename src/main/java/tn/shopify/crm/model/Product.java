@@ -20,13 +20,6 @@ public class Product {
 	private String name; 
 	@Column  
 	private float price;
-	@ManyToOne(optional=false)
-	@JoinColumn(name="idcategory", referencedColumnName="id")
-	private Sale sale;
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", sale=" + sale + "]";
-	}
 	public int getId() {
 		return id;
 	}
@@ -45,10 +38,10 @@ public class Product {
 	public void setPrice(float price) {
 		this.price = price;
 	}
-	public Sale getSale() {
-		return sale;
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
 	}
-	public void setSale(Sale sale) {
-		this.sale = sale;
-	}
+
+
 	}

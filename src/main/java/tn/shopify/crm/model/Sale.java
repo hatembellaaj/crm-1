@@ -20,6 +20,16 @@ public class Sale {
 	private int id;  
 	@Column   
 	private float quantity; 
+	
+	@Column  
+	private float price;
+
+	@Column  
+	private int tax;
+
+	@Column  
+	private float discount;
+	
 
 	@ManyToOne(optional=false)
 	@JoinColumn(name="idinvoice", referencedColumnName="id")
@@ -48,10 +58,39 @@ public class Sale {
 	public void setInvoice(Invoice invoice) {
 		this.invoice = invoice;
 	}
+	
+	
+	
+	public float getPrice() {
+		return price;
+	}
+	public void setPrice(float price) {
+		this.price = price;
+	}
+	public int getTax() {
+		return tax;
+	}
+	public void setTax(int tax) {
+		this.tax = tax;
+	}
+	public float getDiscount() {
+		return discount;
+	}
+	public void setDiscount(float discount) {
+		this.discount = discount;
+	}
+	public Product getProduct() {
+		return product;
+	}
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 	@Override
 	public String toString() {
-		return "Sale [id=" + id + ", quantity=" + quantity + ", invoice=" + invoice + ", product=" + product + "]";
+		return "Sale [id=" + id + ", quantity=" + quantity + ", price=" + price + ", tax=" + tax + ", discount="
+				+ discount + ", invoice=" + invoice + ", product=" + product + "]";
 	}
+
 	
 	
 

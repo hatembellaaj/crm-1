@@ -20,6 +20,11 @@ public class Product {
 	private String name; 
 	@Column  
 	private float price;
+
+	@Column  
+	private int tax;
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -38,10 +43,19 @@ public class Product {
 	public void setPrice(float price) {
 		this.price = price;
 	}
+	
+	
+	public int getTax() {
+		return tax;
+	}
+	public void setTax(int tax) {
+		this.tax = tax;
+	}
 	@Override
 	public String toString() {
-		return "Product [id=" + id + ", name=" + name + ", price=" + price + "]";
+		return "Product [id=" + id + ", name=" + name + ", price=" + price + ", tax=" + tax + "]";
 	}
+
 
 
 	}
